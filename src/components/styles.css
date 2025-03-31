@@ -1,0 +1,57 @@
+.rectangle {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Vertical alignment */
+    align-items: center; /* Horizontal alignment */
+    height: 400px; /* Set a height so vertical centering works */
+    width: 800px; /* Optional: control width */
+    margin: auto; /* Optional: center the whole rectangle on the page */
+    background-color: #6d6a6a; /* Optional: just to see it */
+    border-radius: 8px; /* Optional: make it look nice */
+}
+
+.countdown-title {
+    color: #111; /* Very dark gray (almost black) */
+    font-weight: 700; /* Bold */
+    font-size: 1.5rem; /* Optional: slightly larger text */
+}
+
+.event-info-input {
+    display: flex;
+    flex-direction: row; /* This is the default, but adding it for clarity */
+    gap: 1rem; /* Adds spacing between items */
+    align-items: center; /* Vertically aligns text/buttons */
+    justify-content: center; /* Optional: center everything horizontally */
+    margin-bottom: 1rem; /* Space below this section */
+}
+
+button.start-button {
+    background-color: #28a745; /* Bootstrap-style green */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    margin-bottom: 1rem; /* Adds space below the button */
+}
+
+button.start-button:hover {
+    background-color: #218838; /* Slightly darker green on hover */
+}
+
+.event-info-input {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.event-info-input label {
+    display: flex;
+    flex-direction: column; /* Stack label text and input vertically */
+    font-weight: bold;
+    gap: 0.5rem;
+}
