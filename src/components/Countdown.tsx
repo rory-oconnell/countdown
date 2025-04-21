@@ -1,24 +1,51 @@
 import './styles.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function Countdown() {
     const [eventName, setEventName] = useState('');
-    const [counter, setCounter] = useState(500);
+    const [eventDate, setEventDate] = useState('');
+    const [eventTime, setEventTime] = useState('');
+    const [remainingTime, setRemainingTime] = useState(0);
     const [submittedEventName, setSubmittedEventName] = useState('');
-    const [submittedCounter, setSubmittedCounter] = useState(0);
 
-    function handleSubmit() {
-        setSubmittedEventName(eventName);
-        setSubmittedCounter(counter);
+    function startCountdown(targetDateTime: number | Date) {
+        const interval = setInterval(() => {
+            const now = new Date();
+            const difference = targetDateTime - now;
+
+            if (difference <= 0) {
+                clearInterval(interval);
+                setRemainingTime(0); // Event is here!
+            } else {
+                setRemainingTime(Math.floor(difference / 1000)); // Save seconds left
+            }
+        }, 1000);
     }
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCounter((prevCounter) => prevCounter - 1);
-        }, 1000);
+    function handleSubmit() {
+        if (!eventName) {
+            alert('Event name must be entered!');
+            return;
+        }
 
-        return () => clearInterval(interval);
-    }, []);
+        handleEventNameSubmission(eventName);
+        handleEventTimeSubmission();
+
+        const timeToUse = eventTime || '00:00'; // Default if empty
+        const targetDateTime = new Date(`${eventDate}T${timeToUse}`);
+
+        startCountdown(targetDateTime);
+    }
+
+    function handleEventNameSubmission(eventName: string) {
+        setSubmittedEventName(eventName);
+    }
+
+    function handleEventTimeSubmission() {
+        if (!eventTime) {
+            setEventTime('00:00'); // Default to midnight if empty
+        }
+    }
 
     return (
         <>
@@ -35,8 +62,22 @@ function Countdown() {
                     />{' '}
                 </label>
                 <label>
+                    Event Date
+                    <input
+                        type="date"
+                        required={true}
+                        value={eventDate}
+                        onChange={(e) => setEventDate(e.target.value)}
+                    />
+                </label>
+                <label>
                     Event Time
-                    <input type="number" required={true} />
+                    <input
+                        type="time"
+                        required={false}
+                        value={eventTime}
+                        onChange={(e) => setEventTime(e.target.value)}
+                    />
                 </label>
             </div>
             <div>
@@ -48,7 +89,7 @@ function Countdown() {
                 <p className="countdown-title">
                     Countdown to {submittedEventName}:
                 </p>
-                <p className="countdown-title"> {submittedCounter}</p>
+                <p className="countdown-title">{remainingTime} seconds left</p>
             </div>
         </>
     );

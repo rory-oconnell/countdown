@@ -1,57 +1,88 @@
+body {
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .rectangle {
     display: flex;
-    flex-direction: column; /* Stack content vertically */
-    justify-content: center; /* Vertical alignment */
-    align-items: center; /* Horizontal alignment */
-    height: 400px; /* Set a height so vertical centering works */
-    width: 800px; /* Optional: control width */
-    margin: auto; /* Optional: center the whole rectangle on the page */
-    background-color: #6d6a6a; /* Optional: just to see it */
-    border-radius: 8px; /* Optional: make it look nice */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fefefe;
+    height: 150px;
+    width: 600px;
+    margin: auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    padding-bottom: 3rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.rectangle:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
 .countdown-title {
-    color: #111; /* Very dark gray (almost black) */
-    font-weight: 700; /* Bold */
-    font-size: 1.5rem; /* Optional: slightly larger text */
+    color: #2a2a2a;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .event-info-input {
     display: flex;
-    flex-direction: row; /* This is the default, but adding it for clarity */
-    gap: 1rem; /* Adds spacing between items */
-    align-items: center; /* Vertically aligns text/buttons */
-    justify-content: center; /* Optional: center everything horizontally */
-    margin-bottom: 1rem; /* Space below this section */
-}
-
-button.start-button {
-    background-color: #28a745; /* Bootstrap-style green */
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-
-    margin-bottom: 1rem; /* Adds space below the button */
-}
-
-button.start-button:hover {
-    background-color: #218838; /* Slightly darker green on hover */
-}
-
-.event-info-input {
-    display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .event-info-input label {
     display: flex;
-    flex-direction: column; /* Stack label text and input vertically */
-    font-weight: bold;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333333;
     gap: 0.5rem;
+}
+
+.event-info-input input {
+    padding: 0.6rem;
+    border: 2px solid #888;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #2a2a2a;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.event-info-input input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+button.start-button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 2rem;
+}
+
+button.start-button:hover {
+    background: linear-gradient(135deg, #0069d9, #004085);
+    transform: scale(1.05);
 }
