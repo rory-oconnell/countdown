@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .rectangle {
@@ -20,7 +20,7 @@ body {
     margin: auto;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    padding-bottom: 3rem;
+    padding: 2rem;
     transition: box-shadow 0.3s ease;
 }
 
