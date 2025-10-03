@@ -1,7 +1,8 @@
-import './styles.css';
 import { useCountdown } from './useCountdown.tsx';
 
 function Countdown() {
+    const likes = 10;
+    const site = "http://www.google.com"
     const {
         eventName,
         setEventName,
@@ -19,6 +20,7 @@ function Countdown() {
             <div className="event-info-input">
                 <label>
                     Event Name
+                    <br />
                     <input
                         type="text"
                         placeholder="Enter event name here"
@@ -29,7 +31,10 @@ function Countdown() {
                     />{' '}
                 </label>
                 <label>
+                    <br />
+                    <br />
                     Event Date
+                    <br />
                     <input
                         type="date"
                         required={true}
@@ -38,7 +43,10 @@ function Countdown() {
                     />
                 </label>
                 <label>
+                    <br />
+                    <br />
                     Event Time
+                    <br />
                     <input
                         type="time"
                         required={false}
@@ -48,6 +56,7 @@ function Countdown() {
                 </label>
             </div>
             <div>
+                <br />
                 <button className="start-button" onClick={handleSubmit}>
                     Start Countdown
                 </button>
@@ -58,6 +67,10 @@ function Countdown() {
                 </p>
                 <p className="countdown-title">{remainingTime} seconds left</p>
             </div>
+            <p>{ likes }</p>
+            <p> {"Wassup my ninjas"}</p>
+            <p> {Math.random() * 10}</p>
+            <a href={site}>Google Site</a>
         </>
     );
 }
