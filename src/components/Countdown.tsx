@@ -67,10 +67,6 @@ function Countdown() {
                 </p>
                 <p className="countdown-title">{remainingTime} seconds left</p>
             </div>
-            <p>{ likes }</p>
-            <p> {"Wassup my ninjas"}</p>
-            <p> {Math.random() * 10}</p>
-            <a href={site}>Google Site</a>
         </>
     );
 }
